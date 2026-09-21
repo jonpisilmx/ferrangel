@@ -545,40 +545,60 @@
             font-weight: 500;
         }
 
-        /* Glossary Section */
-        .glossary-section {
+        /* Glossary Section - Estructura Sticky Parallax Horizontal */
+        .glossary-wrapper {
+            position: relative;
+            height: 350vh; /* Define el área de scroll vertical para transformarlo a horizontal */
+        }
+
+        .glossary-sticky-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
             background: var(--card-bg);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 40px 24px;
             border: 1px solid var(--border-color);
+            box-shadow: 0 8px 24px rgba(17, 20, 98, 0.04);
         }
 
         .glossary-header {
             text-align: center;
-            margin-bottom: 32px;
+            padding: 20px 20px 0 20px;
+            flex-shrink: 0;
         }
 
         .glossary-header h2 {
             font-size: 1.8rem;
             color: var(--navy-primary);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
-        .glossary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
+        .glossary-track {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding: 0 calc(50vw - 170px); /* Centra la primera y última card */
+            will-change: transform;
+            transition: transform 0.1s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
         .glossary-item {
-            padding: 0 0 22px 0;
-            border-radius: 14px;
+            flex: 0 0 340px;
+            width: 340px;
             background: #FFFFFF;
+            border-radius: 18px;
             border: 1px solid var(--border-color);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(17, 20, 98, 0.08);
+            transform-origin: center center;
+            transition: transform 0.25s ease-out, opacity 0.25s ease-out;
+            will-change: transform, opacity;
+            padding-bottom: 20px;
         }
 
         .glossary-img-wrapper {
@@ -618,6 +638,28 @@
         .glossary-item p {
             font-size: 0.88rem;
             color: var(--text-dark);
+        }
+
+        /* Indicator Dots para el Carrusel */
+        .glossary-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .glossary-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .glossary-dot.active {
+            background: var(--magenta-accent);
+            width: 24px;
+            border-radius: 10px;
         }
 
         /* About Section */
@@ -774,6 +816,15 @@
                 font-size: 2rem;
             }
 
+            .glossary-item {
+                flex: 0 0 280px;
+                width: 280px;
+            }
+
+            .glossary-track {
+                padding: 0 calc(50vw - 140px);
+            }
+
             .about-subtle {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -793,7 +844,7 @@
                 justify-content: center;
             }
 
-            .glossary-item, .kit-feature-card {
+            .kit-feature-card {
                 padding-bottom: 20px;
             }
         }
@@ -989,55 +1040,60 @@
         </div>
     </section>
 
-    <!-- Glossary Section con Imágenes Incorporadas -->
-    <section>
-        <div class="container">
-            <div class="glossary-section">
-                <div class="glossary-header">
-                    <h2>Lo que significa cada solución</h2>
-                    <p style="color: var(--text-muted);">Sin enredos ni tecnicismos financieros. Aquí verás exactamente en qué consiste el respaldo para tu vida diaria.</p>
+    <!-- Glossary Section con Parallax Horizontal & Carrusel por Scroll -->
+    <div class="glossary-wrapper" id="glossaryWrapper">
+        <div class="glossary-sticky-container">
+            <div class="glossary-header">
+                <h2>Lo que significa cada solución</h2>
+                <p style="color: var(--text-muted);">Sin enredos ni tecnicismos financieros. Aquí verás exactamente en qué consiste el respaldo para tu vida diaria.</p>
+            </div>
+
+            <div class="glossary-track" id="glossaryTrack">
+                <div class="glossary-item">
+                    <div class="glossary-img-wrapper">
+                        <img src="https://plus.unsplash.com/premium_photo-1683140611421-37c181b9f119?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Independencia Económica en la Madurez">
+                    </div>
+                    <div class="glossary-item-title">Ayudo a personas a asegurar su independencia económica en la madurez</div>
+                    <div class="glossary-item-subtitle">(Conocido técnicamente como PPR)</div>
+                    <p><strong>En lenguaje sencillo:</strong> Tu sueldo futuro garantizado. Un fondo donde guardas dinero mes a mes para asegurar que, cuando decidas bajar el ritmo de trabajo, sigas manteniendo tu libertad financiera sin convertirte en una carga para tus hijos.</p>
                 </div>
 
-                <div class="glossary-grid">
-                    <div class="glossary-item">
-                        <div class="glossary-img-wrapper">
-                            <img src="https://plus.unsplash.com/premium_photo-1683140611421-37c181b9f119?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Independencia Económica en la Madurez">
-                        </div>
-                        <div class="glossary-item-title">Ayudo a personas a asegurar su independencia económica en la madurez</div>
-                        <div class="glossary-item-subtitle">(Conocido técnicamente como PPR)</div>
-                        <p><strong>En lenguaje sencillo:</strong> Tu sueldo futuro garantizado. Un fondo donde guardas dinero mes a mes para asegurar que, cuando decidas bajar el ritmo de trabajo, sigas manteniendo tu libertad financiera sin convertirte en una carga para tus hijos.</p>
+                <div class="glossary-item">
+                    <div class="glossary-img-wrapper">
+                        <img src="https://plus.unsplash.com/premium_photo-1723651318933-ccf83800586d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Protección Familiar">
                     </div>
+                    <div class="glossary-item-title">Ayudo a familias a que sigan adelante cuando el principal proveedor ya no está</div>
+                    <div class="glossary-item-subtitle">(Conocido técnicamente como Seguro de Vida e Invalidez)</div>
+                    <p><strong>En lenguaje sencillo:</strong> La promesa de que las personas que amas mantendrán su hogar y estabilidad. Es un respaldo que entra en acción ante una falta o invalidez para evitar que la familia pase por apuros económicos.</p>
+                </div>
 
-                    <div class="glossary-item">
-                        <div class="glossary-img-wrapper">
-                            <img src="https://plus.unsplash.com/premium_photo-1723651318933-ccf83800586d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Protección Familiar">
-                        </div>
-                        <div class="glossary-item-title">Ayudo a familias a que sigan adelante cuando el principal proveedor ya no está</div>
-                        <div class="glossary-item-subtitle">(Conocido técnicamente como Seguro de Vida e Invalidez)</div>
-                        <p><strong>En lenguaje sencillo:</strong> La promesa de que las personas que amas mantendrán su hogar y estabilidad. Es un respaldo que entra en acción ante una falta o invalidez para evitar que la familia pase por apuros económicos.</p>
+                <div class="glossary-item">
+                    <div class="glossary-img-wrapper">
+                        <img src="https://plus.unsplash.com/premium_photo-1681995163615-c56d0053a067?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Protección Patrimonial y Salud">
                     </div>
+                    <div class="glossary-item-title">Ayudo a familias a proteger su patrimonio ante enfermedades o emergencias médicas</div>
+                    <div class="glossary-item-subtitle">(Conocido técnicamente como Gastos Médicos Mayores)</div>
+                    <p><strong>En lenguaje sencillo:</strong> Un escudo de tranquilidad. La certeza de que ante cualquier eventualidad de salud, tú y los tuyos recibirán atención privada de calidad sin gastar sus ahorros de vida.</p>
+                </div>
 
-                    <div class="glossary-item">
-                        <div class="glossary-img-wrapper">
-                            <img src="https://plus.unsplash.com/premium_photo-1681995163615-c56d0053a067?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Protección Patrimonial y Salud">
-                        </div>
-                        <div class="glossary-item-title">Ayudo a familias a proteger su patrimonio ante enfermedades o emergencias médicas</div>
-                        <div class="glossary-item-subtitle">(Conocido técnicamente como Gastos Médicos Mayores)</div>
-                        <p><strong>En lenguaje sencillo:</strong> Un escudo de tranquilidad. La certeza de que ante cualquier eventualidad de salud, tú y los tuyos recibirán atención privada de calidad sin gastar sus ahorros de vida.</p>
+                <div class="glossary-item">
+                    <div class="glossary-img-wrapper">
+                        <img src="https://plus.unsplash.com/premium_photo-1714259937114-e860bc64a9d2?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Garantía Educativa">
                     </div>
-
-                    <div class="glossary-item">
-                        <div class="glossary-img-wrapper">
-                            <img src="https://plus.unsplash.com/premium_photo-1714259937114-e860bc64a9d2?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Garantía Educativa">
-                        </div>
-                        <div class="glossary-item-title">Ayudo a padres a que sus hijos terminen la universidad</div>
-                        <div class="glossary-item-subtitle">(Conocido técnicamente como Seguro Educativo / Segubeca)</div>
-                        <p><strong>En lenguaje sencillo:</strong> El regalo de la educación garantizada. Un ahorro programado que crece con los años para cubrir la carrera universitaria de tus hijos, pase lo que pase en el camino.</p>
-                    </div>
+                    <div class="glossary-item-title">Ayudo a padres a que sus hijos terminen la universidad</div>
+                    <div class="glossary-item-subtitle">(Conocido técnicamente como Seguro Educativo / Segubeca)</div>
+                    <p><strong>En lenguaje sencillo:</strong> El regalo de la educación garantizada. Un ahorro programado que crece con los años para cubrir la carrera universitaria de tus hijos, pase lo que pase en el camino.</p>
                 </div>
             </div>
+
+            <div class="glossary-indicators" id="glossaryIndicators">
+                <div class="glossary-dot active"></div>
+                <div class="glossary-dot"></div>
+                <div class="glossary-dot"></div>
+                <div class="glossary-dot"></div>
+            </div>
         </div>
-    </section>
+    </div>
 
     <!-- About Section -->
     <section class="container">
@@ -1097,7 +1153,66 @@
                 const factor = isMobile ? 0.4 : 1;
                 circle.style.transform = `translateY(${scrolled * speed * factor}px)`;
             });
+
+            // Lógica Parallax Horizontal para la Sección Glossary
+            handleHorizontalParallax();
         });
+
+        function handleHorizontalParallax() {
+            const wrapper = document.getElementById('glossaryWrapper');
+            const track = document.getElementById('glossaryTrack');
+            const items = document.querySelectorAll('.glossary-item');
+            const dots = document.querySelectorAll('.glossary-dot');
+
+            if (!wrapper || !track) return;
+
+            const wrapperRect = wrapper.getBoundingClientRect();
+            const wrapperTop = wrapperRect.top;
+            const wrapperHeight = wrapperRect.height - window.innerHeight;
+
+            if (wrapperTop <= 0 && wrapperTop >= -wrapperHeight) {
+                // Progreso del scroll dentro de la sección (de 0 a 1)
+                const progress = Math.abs(wrapperTop) / wrapperHeight;
+                
+                // Cálculo del desplazamiento horizontal
+                const totalMove = track.scrollWidth - window.innerWidth;
+                const currentX = progress * totalMove;
+                track.style.transform = `translateX(-${currentX}px)`;
+
+                // Efecto Carrousel Parallax: Escalar y ajustar opacidad de los ítems según su posición
+                const viewportCenter = window.innerWidth / 2;
+                let activeIndex = 0;
+                let minDistance = Infinity;
+
+                items.forEach((item, index) => {
+                    const itemRect = item.getBoundingClientRect();
+                    const itemCenter = itemRect.left + itemRect.width / 2;
+                    const distanceFromCenter = Math.abs(viewportCenter - itemCenter);
+
+                    // Escala entre 0.82 y 1.05
+                    const scale = Math.max(0.82, 1.05 - (distanceFromCenter / window.innerWidth) * 0.5);
+                    // Opacidad entre 0.5 y 1.0
+                    const opacity = Math.max(0.5, 1 - (distanceFromCenter / (window.innerWidth * 0.5)) * 0.5);
+
+                    item.style.transform = `scale(${scale})`;
+                    item.style.opacity = opacity;
+
+                    if (distanceFromCenter < minDistance) {
+                        minDistance = distanceFromCenter;
+                        activeIndex = index;
+                    }
+                });
+
+                // Actualizar los puntos indicadores
+                dots.forEach((dot, idx) => {
+                    if (idx === activeIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+        }
 
         function calculateRetirement() {
             const ageInput = parseFloat(document.getElementById('age').value) || 30;
@@ -1151,7 +1266,10 @@
             closeContactModal();
         }
 
-        window.onload = calculateRetirement;
+        window.onload = function() {
+            calculateRetirement();
+            handleHorizontalParallax();
+        };
     </script>
 </body>
 </html>

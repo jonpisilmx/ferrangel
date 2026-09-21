@@ -284,8 +284,8 @@
             backdrop-filter: blur(10px);
             color: #FFFFFF;
             border-radius: 20px;
-            padding: 60px 28px 40px 28px; /* Padding superior para dar espacio a la foto */
-            margin: 70px 0 20px 0; /* Margen superior amplio para dar espacio al corte */
+            padding: 60px 28px 40px 28px;
+            margin: 70px 0 20px 0;
             position: relative;
             box-shadow: 0 10px 30px rgba(17, 20, 98, 0.15);
         }
@@ -294,7 +294,7 @@
             position: absolute;
             top: 0;
             left: 50%;
-            transform: translate(-50%, -50%); /* Posición 50% afuera, 50% adentro */
+            transform: translate(-50%, -50%);
             width: 120px;
             height: 120px;
             border-radius: 50%;
@@ -572,14 +572,35 @@
         }
 
         .glossary-item {
-            padding: 22px;
+            padding: 0 0 22px 0;
             border-radius: 14px;
             background: #FFFFFF;
             border: 1px solid var(--border-color);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .glossary-img-wrapper {
+            width: 100%;
+            height: 180px;
+            margin-bottom: 16px;
+        }
+
+        .glossary-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .glossary-item-title, 
+        .glossary-item-subtitle, 
+        .glossary-item p {
+            padding: 0 20px;
         }
 
         .glossary-item-title {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--navy-primary);
             margin-bottom: 6px;
             font-weight: 600;
@@ -597,32 +618,6 @@
         .glossary-item p {
             font-size: 0.88rem;
             color: var(--text-dark);
-        }
-
-        /* Archetypes Section */
-        .archetype-section {
-            text-align: center;
-            background: rgba(17, 20, 98, 0.95);
-            backdrop-filter: blur(10px);
-            color: #FFFFFF;
-            border-radius: 20px;
-            padding: 40px 20px;
-            margin: 20px 0;
-        }
-
-        .archetype-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 12px;
-            color: #FFFFFF;
-        }
-
-        .archetype-section p {
-            font-size: 0.95rem;
-            color: #CBD8DE;
-        }
-
-        .archetype-symbol {
-            margin-top: 20px;
         }
 
         /* Ecosystem Cross-selling */
@@ -836,7 +831,7 @@
             }
 
             .service-card, .glossary-item, .kit-feature-card {
-                padding: 20px 16px;
+                padding-bottom: 20px;
             }
         }
     </style>
@@ -881,7 +876,7 @@
                     <a href="#calculadora" class="btn">Proyectar mi retiro</a>
                 </div>
                 <div class="hero-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1288&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Fernanda Rangel - Conciencia Financiera">
+                    <img src="https://postimg.cc/0ryTp9DP" alt="Fernanda Rangel - Conciencia Financiera">
                     <div class="hero-image-badge">
                         <strong>Acompañamiento 1 a 1</strong><br>
                         <small>Estrategias claras y humanas</small>
@@ -901,7 +896,7 @@
                     <p>Diseñar tu retiro es un acto de amor profundo. Te permite mantener tu autonomía en la madurez, disfrutar de tu historia y permitir que tus seres queridos sigan construyendo su propio camino sin incertidumbres.</p>
                 </div>
                 <div class="narrative-image">
-                    <img src="https://images.unsplash.com/photo-1733348137613-90f1af8674fd?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Tranquilidad Financiera Familiar">
+                    <img src="https://postimg.cc/BPbRsC4d" alt="Tranquilidad Financiera Familiar">
                 </div>
             </div>
         </div>
@@ -911,8 +906,7 @@
     <section>
         <div class="container">
             <div class="entrepreneur-section">
-                <!-- Foto circular sobre el borde superior -->
-                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                <img src="https://postimg.cc/Th3zrTgT" 
                      alt="Fernanda Rangel" 
                      class="entrepreneur-avatar-top">
 
@@ -1016,14 +1010,14 @@
 
                     <div class="screenshot-card">
                         <div class="screenshot-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1733348137613-90f1af8674fd?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Testimonio Protección Familiar">
+                            <img src="https://postimg.cc/BPbRsC4d" alt="Testimonio Protección Familiar">
                         </div>
                         <div class="screenshot-caption">"Saber que el futuro escolar de mis hijos está asegurado no tiene precio."</div>
                     </div>
 
                     <div class="screenshot-card">
                         <div class="screenshot-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Testimonio Emprendedores">
+                            <img src="https://postimg.cc/Th3zrTgT" alt="Testimonio Emprendedores">
                         </div>
                         <div class="screenshot-caption">"Como independiente, por fin tengo un esquema claro y deducible."</div>
                     </div>
@@ -1032,7 +1026,7 @@
         </div>
     </section>
 
-    <!-- Glossary Section -->
+    <!-- Glossary Section con Imágenes Incorporadas -->
     <section>
         <div class="container">
             <div class="glossary-section">
@@ -1043,43 +1037,41 @@
 
                 <div class="glossary-grid">
                     <div class="glossary-item">
+                        <div class="glossary-img-wrapper">
+                            <img src="https://plus.unsplash.com/premium_photo-1683140611421-37c181b9f119?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Independencia Económica en la Madurez">
+                        </div>
                         <div class="glossary-item-title">Ayudo a personas a asegurar su independencia económica en la madurez</div>
                         <div class="glossary-item-subtitle">(Conocido técnicamente como PPR)</div>
                         <p><strong>En lenguaje sencillo:</strong> Tu sueldo futuro garantizado. Un fondo donde guardas dinero mes a mes para asegurar que, cuando decidas bajar el ritmo de trabajo, sigas manteniendo tu libertad financiera sin convertirte en una carga para tus hijos.</p>
                     </div>
 
                     <div class="glossary-item">
+                        <div class="glossary-img-wrapper">
+                            <img src="https://plus.unsplash.com/premium_photo-1723651318933-ccf83800586d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Protección Familiar">
+                        </div>
                         <div class="glossary-item-title">Ayudo a familias a que sigan adelante cuando el principal proveedor ya no está</div>
                         <div class="glossary-item-subtitle">(Conocido técnicamente como Seguro de Vida e Invalidez)</div>
                         <p><strong>En lenguaje sencillo:</strong> La promesa de que las personas que amas mantendrán su hogar y estabilidad. Es un respaldo que entra en acción ante una falta o invalidez para evitar que la familia pase por apuros económicos.</p>
                     </div>
 
                     <div class="glossary-item">
+                        <div class="glossary-img-wrapper">
+                            <img src="https://plus.unsplash.com/premium_photo-1681995163615-c56d0053a067?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Protección Patrimonial y Salud">
+                        </div>
                         <div class="glossary-item-title">Ayudo a familias a proteger su patrimonio ante enfermedades o emergencias médicas</div>
                         <div class="glossary-item-subtitle">(Conocido técnicamente como Gastos Médicos Mayores)</div>
                         <p><strong>En lenguaje sencillo:</strong> Un escudo de tranquilidad. La certeza de que ante cualquier eventualidad de salud, tú y los tuyos recibirán atención privada de calidad sin gastar sus ahorros de vida.</p>
                     </div>
 
                     <div class="glossary-item">
+                        <div class="glossary-img-wrapper">
+                            <img src="https://plus.unsplash.com/premium_photo-1714259937114-e860bc64a9d2?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Garantía Educativa">
+                        </div>
                         <div class="glossary-item-title">Ayudo a padres a que sus hijos terminen la universidad</div>
                         <div class="glossary-item-subtitle">(Conocido técnicamente como Seguro Educativo / Segubeca)</div>
                         <p><strong>En lenguaje sencillo:</strong> El regalo de la educación garantizada. Un ahorro programado que crece con los años para cubrir la carrera universitaria de tus hijos, pase lo que pase en el camino.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Archetypes Section -->
-    <section class="container">
-        <div class="archetype-section">
-            <h2>El Arquetipo de la Guardiana</h2>
-            <p>La flor concéntrica de nuestra identidad representa la armonía, el equilibrio y la expansión constante. Planificar tu retiro es encender esa luz de conciencia: la certeza de que tu futuro está custodiado por tu propia visión del presente.</p>
-            <div class="archetype-symbol">
-                <svg width="40" height="40" viewBox="0 0 100 100">
-                    <circle cx="50" cy="50" r="30" stroke="var(--magenta-accent)" stroke-width="2" fill="none"/>
-                    <circle cx="50" cy="50" r="15" stroke="#FFFFFF" stroke-width="1.5" fill="none"/>
-                </svg>
             </div>
         </div>
     </section>
@@ -1118,7 +1110,7 @@
     <section class="container">
         <div class="about-subtle">
             <div class="about-photo-wrapper">
-                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Fernanda Rangel">
+                <img src="https://postimg.cc/Th3zrTgT" alt="Fernanda Rangel">
             </div>
             <div class="about-content">
                 <h3>Acerca de Fernanda Rangel</h3>

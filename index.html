@@ -582,7 +582,7 @@
             display: flex;
             align-items: center;
             gap: 40px;
-            padding: 0 calc(50vw - 170px); /* Centra la primera y última card */
+            padding: 0 calc(50vw - 170px); /* Centra exactamente el primer recuadro al inicio */
             will-change: transform;
             transition: transform 0.1s cubic-bezier(0.25, 1, 0.5, 1);
         }
@@ -1164,7 +1164,7 @@
             const items = document.querySelectorAll('.glossary-item');
             const dots = document.querySelectorAll('.glossary-dot');
 
-            if (!wrapper || !track) return;
+            if (!wrapper || !track || items.length === 0) return;
 
             const wrapperRect = wrapper.getBoundingClientRect();
             const wrapperTop = wrapperRect.top;
@@ -1174,12 +1174,15 @@
                 // Progreso del scroll dentro de la sección (de 0 a 1)
                 const progress = Math.abs(wrapperTop) / wrapperHeight;
                 
-                // Cálculo del desplazamiento horizontal
-                const totalMove = track.scrollWidth - window.innerWidth;
+                // Cálculo exacto del desplazamiento necesario para alinear la última tarjeta al centro
+                const firstItemOffset = items[0].offsetLeft;
+                const lastItemOffset = items[items.length - 1].offsetLeft;
+                const totalMove = lastItemOffset - firstItemOffset;
+                
                 const currentX = progress * totalMove;
                 track.style.transform = `translateX(-${currentX}px)`;
 
-                // Efecto Carrousel Parallax: Escalar y ajustar opacidad de los ítems según su posición
+                // Efecto Carrousel Parallax: Escalar y ajustar opacidad de los ítems según su posición respecto al centro
                 const viewportCenter = window.innerWidth / 2;
                 let activeIndex = 0;
                 let minDistance = Infinity;
